@@ -1,7 +1,7 @@
 # Use a lean, official Python base image
 FROM python:3.9-slim
 
-# 1. INSTALL SYSTEM DEPENDENCIES
+# 1. INSTALL SYSTEM DEPENDENCIES.
 # Install packages needed for downloading, installing, and running Google Chrome
 # and its driver. We also install `jq` to easily parse the official Chrome JSON feed.
 RUN apt-get update && apt-get install -y \
