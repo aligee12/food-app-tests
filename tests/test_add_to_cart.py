@@ -48,7 +48,8 @@
 #     driver.quit()
 
 # Import your 'get_driver' function from the base file
-from tests.base import get_driver
+# NEW, CORRECT LINE
+from .base import get_driver
 
 # Import Selenium libraries
 from selenium.webdriver.common.by import By

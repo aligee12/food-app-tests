@@ -36,6 +36,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
+
+RUN touch tests/__init__.py
+
 # 5. DEFINE THE COMMAND TO RUN TESTS
 # This command will be executed when your Docker container starts.
 CMD ["pytest", "tests/"]
