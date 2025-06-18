@@ -10,6 +10,20 @@ pipeline {
                 git url: 'https://github.com/aligee12/food-app-tests.git', branch: 'main'
             }
         }
+
+        stage('Clean Previous Docker Image') {
+            steps {
+                script {
+                    // Remove existing image (if it exists) before building a new one
+                    sh '''
+                        if docker image inspect ${DOCKER_IMAGE} > /dev/null 2>&1; then
+                            docker rmi -f ${DOCKER_IMAGE}
+                        fi
+                    '''
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -17,6 +31,7 @@ pipeline {
                 }
             }
         }
+
         stage('Run Tests') {
             steps {
                 script {
