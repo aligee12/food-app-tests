@@ -87,7 +87,7 @@ def test_cart_shows_added_item():
 
         # **ACTION REQUIRED**: Verify this locator is correct for your app.
         # Right-click an item in your cart and "Inspect" to find the right class name.
-        cart_item_locator = (By.CLASS_NAME, 'cart-item') 
+        cart_item_locator = (By.CLASS_NAME, 'cart-items-title') 
         
         # Wait until at least one item with the specified locator appears on the page
         wait.until(EC.presence_of_element_located(cart_item_locator))
